@@ -6,9 +6,9 @@ import '../styles/index.css'
 
 const Layout = (props) => {
     return (
-        <div>
+        <div className="container">
             <Header />
-            <div>
+            <div className="content">
                 {props.children}
             </div>
             <Footer />
