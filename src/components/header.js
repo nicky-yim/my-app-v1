@@ -3,10 +3,12 @@ import { Link } from 'gatsby'
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <nav>
                 <div className="logo">
-                    <h1>Nicky Yim</h1>
+                    <Link to="/">
+                        <h1>Nicky Yim</h1>
+                    </Link>
                 </div>
                 <ul>
                     <li>
@@ -20,7 +22,7 @@ const Header = () => {
                     </li>
                 </ul>
             </nav>
-        </div>
+        </header>
     )
 }
 
