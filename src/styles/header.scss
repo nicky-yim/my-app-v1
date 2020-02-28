@@ -1,3 +1,9 @@
+@import './variables.scss';
+
+header {
+    background-color: rgba($fontColor, .9);
+}
+
 nav {
     width: 70%;
     margin: 0 auto;
@@ -7,37 +13,46 @@ nav {
     min-height: 10vh;
 }
 
+.logo {
+    display: none;
+}
+
 .logo a {
+    font-size: 18px;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: white;
+    letter-spacing: 5px;
+    color: $tertiaryColor;
     transition: letter-spacing .2s;
 }
 
 .logo a:hover {
-    letter-spacing: 5px;
+    letter-spacing: 10px;
 }
 
 nav ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 30%;
+    margin: 0 auto;
 }
 
 nav ul li {
     list-style: none;
     font-weight: bold;
+    margin: 0 5vw;
 }
 
 nav ul li a {
-    letter-spacing: 2px;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
     text-decoration: none;
-    color: white;
-    transition: border-bottom .2s;
+    color: $secondaryColor;
+    transition: color .3s;
 }
 
 nav ul li a:hover {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
+    color: $primaryColor;
 }
