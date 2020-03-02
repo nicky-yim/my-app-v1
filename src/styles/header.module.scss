@@ -15,45 +15,54 @@ nav {
 }
 
 .logo {
-    display: none;
+    display: block;
+    width: 30%;
+}
+
+.logo * {
+    font-family: 'Architects Daughter', 'Roboto Condensed', 'Segoe UI', 'Arial';
 }
 
 .logo a {
-    font-size: 18px;
+    font-size: 20px;
+    color: $primaryColorShadow;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    color: $tertiaryColor;
-    transition: letter-spacing .2s;
 }
 
 .logo a:hover {
-    letter-spacing: 10px;
+    color: $primaryColor;
 }
 
-nav ul {
+.nav-list {
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     margin: 0 auto;
 }
 
-nav ul li {
+.nav-list li {
     list-style: none;
-    font-weight: bold;
-    margin: 0 5vw;
+    margin: 0 25px;
 }
 
-nav ul li a {
+.nav-item {
     font-size: 18px;
+    font-weight: bold;
     letter-spacing: 5px;
     text-transform: uppercase;
     text-decoration: none;
     color: $secondaryColor;
-    transition: color .3s;
+    transition: color .5s;
 }
 
-nav ul li a:hover {
+.nav-item-active {
+    color: $tertiaryColor;
+    border-bottom: 2px solid;
+}
+
+.nav-item:hover {
     border-bottom: 3px solid;
     color: $primaryColor;
 }

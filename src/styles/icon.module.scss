@@ -1,0 +1,16 @@
+@import './variables.scss';
+
+.icon-wrapper {
+    padding: 10px;
+    border: 3px $fontColor;
+    border-radius: 50%;
+}
+
+.icon {
+    font-size: 2em;
+    color: $fontColor;
+}
+
+.icon:hover {
+    color: $primaryColorShadow;
+}

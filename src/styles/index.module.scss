@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.greeting {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2px;
+    color: $fontColor;
+    text-align: center;
+    font-size: 36px;
+    text-shadow: 3px 3px $primaryColorShadow;
+}

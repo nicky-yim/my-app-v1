@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter|Roboto+Condensed&display=swap');
+@import './variables.scss';
+
+* {
+    font-family: 'Roboto Condensed', 'Segoe UI', 'Arial';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background: linear-gradient(to bottom, $primaryColorOff 0%, $primaryColor 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex-grow: 1;
+}
