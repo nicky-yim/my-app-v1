@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <Layout>
             <div className={homeStyle.greeting}>
-                <h1>Contact</h1>
+                <h1>Work in progress... Sorry!</h1>
             </div>
         </Layout>
     )

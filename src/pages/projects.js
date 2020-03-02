@@ -7,9 +7,7 @@ const Projects = () => {
     return (
         <Layout>
             <div className={homeStyle.greeting}>
-                <h1>
-                    Projects
-                </h1>
+                <h1>Work in progress... Sorry!</h1>
             </div>
         </Layout>
     )

@@ -7,8 +7,7 @@ const About = () => {
     return (
         <Layout>
             <div className={homeStyle.greeting}>
-                <h1>About me:</h1>
-                <h2>I'm Nicky, a software developer from Toronto, Canada.</h2>
+                <h1>Work in progress... Sorry!</h1>
             </div>
         </Layout>
     )
