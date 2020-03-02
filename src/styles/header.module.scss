@@ -28,6 +28,7 @@ nav {
     color: $primaryColorShadow;
     text-decoration: none;
     text-transform: uppercase;
+    transition: color .4s;
 }
 
 .logo a:hover {
@@ -59,7 +60,7 @@ nav {
 
 .nav-item-active {
     color: $tertiaryColor;
-    border-bottom: 2px solid;
+    border-bottom: 3px solid;
 }
 
 .nav-item:hover {

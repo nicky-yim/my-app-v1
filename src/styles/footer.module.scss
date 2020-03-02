@@ -11,19 +11,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.footer-icon-wrapper {
-    padding: 10px;
-    border: 3px $fontColor;
-    border-radius: 50%;
-}
-
-.footer-icon {
-    font-size: 2em;
-    color: $fontColor;
-    text-shadow: 3px 3px $primaryColorShadow;
-}
-
-.footer-icon:hover {
-    color: $primaryColorShadow;
-}

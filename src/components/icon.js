@@ -7,11 +7,11 @@ const Icon = props => {
     const icon = React.createElement(FontAwesome[props.iconName])
 
     return (
-        <div className={iconStyle.iconWrapper}>
-            <a className={iconStyle.icon} href={props.href} title={props.title} target="_blank" rel="noopener noreferrer">
+        <a className={iconStyle.iconWrapper} href={props.href} title={props.title} target="_blank" rel="noopener noreferrer">
+            <div className={iconStyle.icon}>
                 {icon}
-            </a>
-        </div>
+            </div>
+        </a>
     )
 }
 
