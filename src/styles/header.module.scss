@@ -1,7 +1,6 @@
-@import './variables.scss';
-
+@import "./variables.scss";
 header {
-    background-color: rgba($fontColor, .9);
+    background-color: rgba($fontColor, 0.9);
     border-bottom: 2px $primaryColorShadow solid;
 }
 
@@ -11,16 +10,18 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 10vh;
 }
 
 .logo {
-    display: block;
     width: 30%;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.logo * {
-    font-family: 'Architects Daughter', 'Roboto Condensed', 'Segoe UI', 'Arial';
+.logo a h1 {
+    font-family: "Permanent Marker", "Roboto Condensed", "Segoe UI", "Arial";
 }
 
 .logo a {
@@ -32,6 +33,22 @@ nav {
 }
 
 .logo a:hover {
+    color: $primaryColor;
+}
+
+.burger {
+    display: none;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: $secondaryColor;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: color .4s;
+}
+
+.burger:hover {
     color: $primaryColor;
 }
 
@@ -66,4 +83,42 @@ nav {
 .nav-item:hover {
     border-bottom: 3px solid;
     color: $primaryColor;
+}
+
+@media screen and (max-width: 992px) {
+    nav {
+        width: 100%;
+    }
+
+    .logo {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 20px;
+    }
 }
