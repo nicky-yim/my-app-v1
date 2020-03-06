@@ -20,4 +20,16 @@
 .content {
     flex-grow: 1;
     text-align: center;
+    width: 50%;
+    margin: auto;
+    padding: 40px;
+    color: $fontColor;
+    font-size: 26px;
+    text-shadow: 3px 3px $primaryColorShadow;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 100%;
+    }
 }

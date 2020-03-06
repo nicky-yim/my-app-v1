@@ -18,22 +18,22 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
 
-.logo a h1 {
-    font-family: "Permanent Marker", "Roboto Condensed", "Segoe UI", "Arial";
-}
+    a {
+        font-size: 20px;
+        color: $primaryColorShadow;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color .4s;
+    }
 
-.logo a {
-    font-size: 20px;
-    color: $primaryColorShadow;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color .4s;
-}
+    a:hover {
+        color: $primaryColor;
+    }
 
-.logo a:hover {
-    color: $primaryColor;
+    a h1 {
+        font-family: "Permanent Marker", "Roboto Condensed", "Segoe UI", "Arial";
+    }
 }
 
 .burger {
@@ -58,11 +58,11 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     margin: 0 auto;
-}
 
-.nav-list li {
-    list-style: none;
-    margin: 0 25px;
+    li {
+        list-style: none;
+        margin: 0 25px;
+    }
 }
 
 .nav-item {
