@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+.avatar-container {
+    margin: 10px;
+}
+
+.avatar {
+    width: 250px;
+    height: 250px;
+    border: 5px solid $fontColor;
+    border-radius: 100%;
+}
+
+.about-me {
+    width: 80%;
+    text-align: left;
+    margin: auto;
+
+    .highlight {
+        color: $tertiaryColor;
+    }
+
+    p {
+        margin: 15px auto;
+    }
+
+    .list {
+        columns: 2;
+        list-style-position: inside;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .about-me {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me {
+        width: 100%;
+    }
+}
