@@ -29,8 +29,8 @@ const About = () => {
                     Things I've been working with recently:
                     <ul className={aboutStyle.list}>
                         <li>ASP.NET</li>
-                        <li>C#</li>
-                        <li>HTML & (S)CSS</li>
+                        <li>C&#35; </li>
+                        <li>HTML &amp; (S)CSS</li>
                         <li>JavaScript (ES6+)</li>
                         <li>React</li>
                         <li>Gatsby</li>
