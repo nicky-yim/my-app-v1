@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto+Condensed&display=swap');
 @import './variables.scss';
 
 * {
@@ -26,8 +25,15 @@
     font-size: 26px;
 }
 
+@media screen and (max-width: 992px) {
+    .content {
+        font-size: 20px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .content {
         width: 100%;
+        font-size: 18px;
     }
 }

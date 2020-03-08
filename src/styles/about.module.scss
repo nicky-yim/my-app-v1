@@ -15,6 +15,11 @@
     width: 80%;
     text-align: left;
     margin: auto;
+    font-weight: 300;
+
+    span {
+        font-size: 1.5em;
+    }
 
     .highlight {
         color: $tertiaryColor;

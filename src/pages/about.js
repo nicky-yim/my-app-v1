@@ -15,15 +15,16 @@ const About = () => {
                 <img src={MyAvatar} alt="Me" className={aboutStyle.avatar} />
             </div>
             <div className={aboutStyle.aboutMe}>
-                <h2>Hey, I'm <u>Nicky Yim</u>.</h2>
+                <span>Hey, I'm <b>Nicky Yim</b>.</span>
                 <p>
                     I'm a software developer from Toronto, who specializes in front-end development.
                 </p>
                 <p>
-                    I began my journey as an <u>ASP.NET C#</u> software developer.
+                    I began my journey as an <b>ASP.NET C#</b> software developer.
                 </p>
                 <p>
-                    Lately, I've been learning <u>React</u> in my free time. This site is proudly built by myself using <u>Gatsby</u>!
+                    Lately, I've been learning <b>React</b> in my free time.
+                    This site is proudly built by myself using <b>Gatsby</b>!
                 </p>
                 <p>
                     Things I've been working with recently:

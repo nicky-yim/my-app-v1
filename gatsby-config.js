@@ -8,6 +8,20 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'react-icons',
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Permanent Marker`
+          },
+          {
+            family: `Roboto Condensed`,
+            variants: [`300`, `400`, `700`]
+          }
+        ]
+      }
+    }
   ]
 }
