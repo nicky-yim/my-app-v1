@@ -1,18 +1,18 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
 import Head from '../components/head'
 
-import MyAvatar from '../images/me.jpg'
-
 import aboutStyle from '../styles/about.module.scss'
 
-const About = () => {
+const About = ({ data }) => {
     return (
         <Layout>
             <Head title="About" />
             <div className={aboutStyle.avatarContainer}>
-                <img src={MyAvatar} alt="Me" className={aboutStyle.avatar} />
+                <Img fluid={data.myAvatar.childImageSharp.fixed} className={aboutStyle.avatar} />
             </div>
             <div className={aboutStyle.aboutMe}>
                 <span>Hey, I'm <b>Nicky Yim</b>.</span>
@@ -43,3 +43,15 @@ const About = () => {
 }
 
 export default About
+
+export const query = graphql`
+    query {
+        myAvatar: file(relativePath: { eq: "me.jpg" }) {
+            childImageSharp {
+                fixed(width: 250, quality: 100) {
+                    ...GatsbyImageSharpFixed_tracedSVG
+                }
+            }
+        }
+    }
+`
