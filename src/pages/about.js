@@ -49,7 +49,7 @@ export const query = graphql`
         myAvatar: file(relativePath: { eq: "me.jpg" }) {
             childImageSharp {
                 fixed(width: 250, quality: 100) {
-                    ...GatsbyImageSharpFixed_tracedSVG
+                    ...GatsbyImageSharpFixed
                 }
             }
         }
