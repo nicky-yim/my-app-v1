@@ -1,5 +1,9 @@
 const path = require('path');
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Nicky Yim | Software Developer',
@@ -32,6 +36,18 @@ module.exports = {
             variants: [`300`, `400`, `700`]
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+        },
+        fetchOptions: {}
       }
     }
   ]

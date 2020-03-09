@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
@@ -7,12 +7,24 @@ import Head from '../components/head'
 
 import aboutStyle from '../styles/about.module.scss'
 
-const About = ({ data }) => {
+const About = () => {
+    const { myAvatar } = useStaticQuery(graphql`
+        query {
+            myAvatar: file(relativePath: { eq: "me.jpg" }) {
+                childImageSharp {
+                    fixed(width: 250, quality: 100) {
+                        ...GatsbyImageSharpFixed
+                    }
+                }
+            }
+        }
+    `)
+
     return (
         <Layout>
-            <Head title="About" />
+            <Head />
             <div className={aboutStyle.avatarContainer}>
-                <Img fluid={data.myAvatar.childImageSharp.fixed} className={aboutStyle.avatar} />
+                <Img fixed={myAvatar.childImageSharp.fixed} className={aboutStyle.avatar} />
             </div>
             <div className={aboutStyle.aboutMe}>
                 <span>Hey, I'm <b>Nicky Yim</b>.</span>
@@ -28,30 +40,18 @@ const About = ({ data }) => {
                 </p>
                 <p>
                     Things I've been working with recently:
-                    <ul className={aboutStyle.list}>
-                        <li>ASP.NET</li>
-                        <li>C&#35; </li>
-                        <li>HTML &amp; (S)CSS</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>React</li>
-                        <li>Gatsby</li>
-                    </ul>
                 </p>
+                <ul className={aboutStyle.list}>
+                    <li>ASP.NET</li>
+                    <li>C&#35; </li>
+                    <li>HTML &amp; (S)CSS</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React</li>
+                    <li>Gatsby</li>
+                </ul>
             </div>
         </Layout>
     )
 }
 
 export default About
-
-export const query = graphql`
-    query {
-        myAvatar: file(relativePath: { eq: "me.jpg" }) {
-            childImageSharp {
-                fixed(width: 250, quality: 100) {
-                    ...GatsbyImageSharpFixed
-                }
-            }
-        }
-    }
-`

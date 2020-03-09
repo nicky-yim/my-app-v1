@@ -1,13 +1,50 @@
 import React from 'react'
-import Layout from '../components/layout'
+import { graphql, useStaticQuery } from 'gatsby'
 
-import homeStyle from '../styles/index.module.scss'
+import Layout from '../components/layout'
+import Head from '../components/head'
+
+import aboutStyle from '../styles/about.module.scss'
 
 const Projects = () => {
+    const { github } = useStaticQuery(graphql`
+        query GetGitHubRepos {
+            github {
+                viewer {
+                    repositories(isFork: false, last: 10) {
+                        nodes {
+                            name
+                            description
+                            url
+                            usesCustomOpenGraphImage
+                            openGraphImageUrl
+                        }
+                    }
+                }
+            }
+        }   
+    `)
+
     return (
         <Layout>
-            <div className={homeStyle.greeting}>
-                <h1>Work in progress... Sorry!</h1>
+            <Head />
+            <div className={aboutStyle.aboutMe}>
+                <ul className={aboutStyle.list}>
+                    {
+                        github.viewer.repositories.nodes.map(function(item) {
+                            return (
+                                <li>
+                                    <a href={item.url}
+                                        alt={item.name}
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        {item.name}
+                                    </a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
             </div>
         </Layout>
     )
