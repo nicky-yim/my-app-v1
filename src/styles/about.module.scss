@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 .avatar-container {
     margin: 10px;
@@ -14,9 +14,8 @@
 
 .about-me {
     width: 80%;
-    text-align: left;
     margin: auto;
-    font-weight: 300;
+    text-align: left;
 
     span {
         font-size: 1.5em;
@@ -36,14 +35,8 @@
     }
 
     .list li:before {
-        content: '\203A';
+        content: "\203A";
         padding-right: 5px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .about-me {
-        width: 100%;
     }
 }
 

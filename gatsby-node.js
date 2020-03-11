@@ -15,14 +15,16 @@ exports.createResolvers = async ({
             imageFile: {
                 type: "File",
                 async resolve(node) {
-                    return await createRemoteFileNode({
-                        url: node.openGraphImageUrl,
-                        store,
-                        cache,
-                        createNode,
-                        createNodeId,
-                        reporter
-                    })
+                    if (node && node.openGraphImageUrl) {
+                        return await createRemoteFileNode({
+                            url: node.openGraphImageUrl,
+                            store,
+                            cache,
+                            createNode,
+                            createNodeId,
+                            reporter
+                        })
+                    }
                 }
             }
         }

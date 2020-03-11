@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.card-container {
+    margin: 5px;
+    display: block;
+}
+
+.card {
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0) 0px 3px 8px 0px;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, .2) 0px 8px 24px 0px;
+}
+
+.preview {
+    display: block;
+}
+
+.desc {
+    display: block;
+}
