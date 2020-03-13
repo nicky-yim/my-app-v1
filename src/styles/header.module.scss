@@ -1,5 +1,5 @@
 @import "./variables.scss";
-header {
+/*header {
     background-color: rgba($fontColor, 0.9);
     border-bottom: 2px $primaryColorShadow solid;
 }
@@ -10,9 +10,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+}*/
 
-.logo {
+/*.logo {
     width: 50%;
     min-height: 10vh;
     display: flex;
@@ -34,7 +34,7 @@ nav {
     a h1 {
         font-family: "Permanent Marker", "Roboto Condensed", "Segoe UI", "Arial";
     }
-}
+}*/
 
 .burger {
     display: none;
@@ -86,9 +86,7 @@ nav {
 }
 
 @media screen and (max-width: 992px) {
-    nav {
-        width: 100%;
-    }
+
 
     .logo {
         padding: 0 20px;
@@ -96,9 +94,7 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
+
 
     .logo {
         width: 100%;

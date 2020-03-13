@@ -12,7 +12,9 @@ module.exports = {
     keywords: 'Nicky Yim, Nicky, Yim, software developer, Toronto, software engineer, front-end developer, web developer, ASP.NET, C#, javascript, React, GatsbyJS'
   },
   plugins: [
-    'gatsby-plugin-sass',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-sass', /* TO BE REMOVED */
+    'gatsby-plugin-smoothscroll',
     'react-icons',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
@@ -49,6 +51,17 @@ module.exports = {
         },
         fetchOptions: {}
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Nicky Yim`,
+        short_name: `Nicky Yim`,
+        start_url: `/`,
+        background_color: `#f6f7f7`,
+        theme_color: `#f6f7f7`,
+        display: `standalone`,
+      },
+    },
   ]
 }

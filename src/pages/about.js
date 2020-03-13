@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
-import Head from '../components/head'
 
 import aboutStyle from '../styles/about.module.scss'
 
@@ -22,7 +21,6 @@ const About = () => {
 
     return (
         <Layout>
-            <Head />
             <div className={aboutStyle.avatarContainer}>
                 <Img fixed={myAvatar.childImageSharp.fixed} className={aboutStyle.avatar} />
             </div>

@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout"
-import Head from "../components/head"
 import Card from "../components/card"
 
 import projectsStyle from "../styles/projects.module.scss"
@@ -47,7 +46,6 @@ const Projects = () => {
 
     return (
         <Layout>
-            <Head />
             <div className={projectsStyle.cardsContainer}>
                 {
                     github.viewer.repositories.nodes.map(item =>

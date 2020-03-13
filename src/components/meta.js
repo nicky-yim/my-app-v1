@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 
-const Head = () => {
+const Meta = () => {
     const { site } = useStaticQuery(graphql`
         {
             site {
@@ -26,4 +26,4 @@ const Head = () => {
     )
 }
 
-export default Head
+export default Meta

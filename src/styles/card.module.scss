@@ -7,8 +7,11 @@
 
 .card {
     width: 100%;
+    background-color: white;
     box-shadow: rgba(0, 0, 0, 0) 0px 3px 8px 0px;
     transition: .3s;
+    border-radius: 5px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
