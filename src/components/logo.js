@@ -29,7 +29,7 @@ const LogoLink = styled.a`
     cursor: pointer;
 
     span {
-        font-family: "Consolas", "Roboto Condensed", "Segoe UI", "Arial";
+        font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
     }
 
     :hover {

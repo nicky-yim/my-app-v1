@@ -18,7 +18,7 @@ const Nav = styled.nav`
     z-index: 10;
     transition: .3s;
 
-    ${({ isScrolled }) => isScrolled && `
+    ${({ isScrolled, isExpanded }) => (isScrolled || isExpanded) && `
         box-shadow: rgba(0, 0, 0, .2) 0 1px 5px 0;
         background-color: #f6f7f7;
     `}
@@ -57,12 +57,32 @@ const NavMenu = styled.div`
     }
 `
 
+const Burger = styled.button`
+    display: none;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #000;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .4s;
+
+    :hover {
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+    }
+`
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
         this.toggleMenu = this.toggleMenu.bind(this)
         this.state = {
-            expanded: false,
+            isExpanded: false,
             isScrolled: false
         }
     }
@@ -85,22 +105,22 @@ class Header extends React.Component {
 
     toggleMenu = () => {
         this.setState({
-            expanded: !this.state.expanded
+            isExpanded: !this.state.isExpanded
         })
     }
 
     render() {
-        const menuIcon = this.state.expanded ? <FaTimes /> : <FaBars />
-        const navListClass = `${headerStyle.navList} ${this.state.expanded ? headerStyle.active : ''}`
+        const menuIcon = this.state.isExpanded ? <FaTimes /> : <FaBars />
+        const navListClass = `${headerStyle.navList} ${this.state.isExpanded ? headerStyle.active : ''}`
 
         return (
-            <Nav isScrolled={this.state.isScrolled}>
+            <Nav isScrolled={this.state.isScrolled} isExpanded={this.state.isExpanded}>
                 <NavWrapper>
                     <NavMenu>
                         <Logo onClick={() => scrollTo('body')} />
-                        <button onClick={this.toggleMenu} className={headerStyle.burger}>
+                        <Burger onClick={this.toggleMenu}>
                             {menuIcon}
-                        </button>
+                        </Burger>
                     </NavMenu>
                     <ul className={navListClass}>
                         <li>
