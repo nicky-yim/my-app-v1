@@ -1,13 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import scrollTo from 'gatsby-plugin-smoothscroll'
+import React from "react"
+import styled from "styled-components"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes } from "react-icons/fa"
 
-import Logo from './logo'
-
-import headerStyle from '../styles/header.module.scss'
+import Logo from "./logo"
 
 const Nav = styled.nav`
     background-color: transparent;
@@ -16,9 +13,11 @@ const Nav = styled.nav`
     left: 0;
     width: 100%;
     z-index: 10;
-    transition: .3s;
+    transition: 0.3s;
 
-    ${({ isScrolled, isExpanded }) => (isScrolled || isExpanded) && `
+    ${({ isScrolled, isExpanded }) =>
+        (isScrolled || isExpanded) &&
+        `
         box-shadow: rgba(0, 0, 0, .2) 0 1px 5px 0;
         background-color: #f6f7f7;
     `}
@@ -66,7 +65,7 @@ const Burger = styled.button`
     outline: none;
     border: none;
     cursor: pointer;
-    transition: all .4s;
+    transition: all 0.4s;
 
     :hover {
         color: #666;
@@ -77,68 +76,125 @@ const Burger = styled.button`
     }
 `
 
+const NavList = styled.ul`
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+        ${({ isExpanded }) =>
+            isExpanded ? `display: flex;` : `display: none;`}
+        width: 100%;
+        flex-direction: column;
+    }
+`
+
+const NavListItem = styled.li`
+    list-style: none;
+    margin: 0 25px;
+
+    @media (max-width: 768px) {
+        margin: 20px;
+    }
+`
+
+const NavListLink = styled.a`
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+    transition: color .3s;
+
+    :hover {
+        color #666;
+        border-bottom: 2px solid;
+    }
+`
+
 class Header extends React.Component {
     constructor(props) {
         super(props)
-        this.toggleMenu = this.toggleMenu.bind(this)
         this.state = {
             isExpanded: false,
-            isScrolled: false
+            isScrolled: false,
         }
+
+        this.toggleMenu = this.toggleMenu.bind(this)
     }
 
     componentDidMount = () => {
-        window.addEventListener('scroll', this.handleScroll, { passive: true })
+        window.addEventListener("scroll", this.handleScroll, { passive: true })
+        window.addEventListener("mousedown", this.handleClick, false)
     }
 
     componentWillUnmount = () => {
-        window.removeEventListener('scroll', this.handleScroll, { passive: true })
-    }
-
-    handleScroll = () => {
-        let scrollTop = document.body !== undefined ? document.body.scrollTop : 0;
-
-        this.setState({
-            isScrolled: (window.pageYOffset || scrollTop) > 0
+        window.removeEventListener("scroll", this.handleScroll, {
+            passive: true,
         })
+        window.removeEventListener("mousedown", this.handleClick, false)
     }
 
     toggleMenu = () => {
         this.setState({
-            isExpanded: !this.state.isExpanded
+            isExpanded: !this.state.isExpanded,
         })
+    }
+
+    handleScroll = () => {
+        let scrollTop =
+            document.body !== undefined ? document.body.scrollTop : 0
+
+        this.setState({
+            isScrolled: (window.pageYOffset || scrollTop) > 0,
+        })
+    }
+
+    handleClick = e => {
+        if (this.node.contains(e.target)) {
+            return
+        }
+
+        this.setState({ isExpanded: false })
     }
 
     render() {
         const menuIcon = this.state.isExpanded ? <FaTimes /> : <FaBars />
-        const navListClass = `${headerStyle.navList} ${this.state.isExpanded ? headerStyle.active : ''}`
 
         return (
-            <Nav isScrolled={this.state.isScrolled} isExpanded={this.state.isExpanded}>
+            <Nav
+                isScrolled={this.state.isScrolled}
+                isExpanded={this.state.isExpanded}
+                ref={node => this.node = node}
+            >
                 <NavWrapper>
                     <NavMenu>
-                        <Logo onClick={() => scrollTo('body')} />
-                        <Burger onClick={this.toggleMenu}>
-                            {menuIcon}
+                        <Logo onClick={() => scrollTo("body")} />
+                        <Burger onClick={this.props.toggleTheme}>
+                            <FaTimes />
                         </Burger>
+                        <Burger onClick={this.toggleMenu}>{menuIcon}</Burger>
                     </NavMenu>
-                    <ul className={navListClass}>
-                        <li>
-                            <Link to="/about" className={headerStyle.navItem} activeClassName={headerStyle.navItemActive}>
+                    <NavList isExpanded={this.state.isExpanded}>
+                        <NavListItem>
+                            <NavListLink onClick={() => scrollTo("#about")}>
                                 About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/projects" className={headerStyle.navItem} activeClassName={headerStyle.navItemActive}>
+                            </NavListLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavListLink onClick={() => scrollTo("#projects")}>
                                 Projects
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/contact" className={headerStyle.navItem} activeClassName={headerStyle.navItemActive}>
+                            </NavListLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <NavListLink onClick={() => scrollTo("#contact")}>
                                 Contact
-                            </Link>
-                        </li>
-                    </ul>
+                            </NavListLink>
+                        </NavListItem>
+                    </NavList>
                 </NavWrapper>
             </Nav>
         )

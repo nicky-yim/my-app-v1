@@ -1,10 +1,10 @@
 import React from 'react'
-
-import Layout from '../components/layout'
 import styled from 'styled-components'
-
 import { FaUser, FaSuitcase, FaComments } from 'react-icons/fa'
 
+import Layout from '../components/layout'
+import Cover from '../components/cover'
+import About from '../components/about'
 
 const Greeting = styled.section`
     background-color: #666;
@@ -46,15 +46,19 @@ const DividerIcon = styled(FaUser)`
 const Home = () => {
     return (
         <Layout>
-            <Greeting>
+            <Cover />
+            <About />
+            {/*<Greeting id="about">
                 <Divider>
                     <DividerIcon />
                 </Divider>
                 <GreetingContent>
                     <h1>Hello!</h1>
-                    <h2>I'm Nicky, a software developer from Toronto, Canada.</h2>
+                    <h2>
+                        I'm Nicky, a software developer from Toronto, Canada.
+                    </h2>
                 </GreetingContent>
-            </Greeting>
+    </Greeting>*/}
         </Layout>
     )
 }

@@ -6,10 +6,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Nicky Yim | Software Developer',
+    title: 'Nicky Yim | Software Engineer',
     author: 'Nicky Yim',
-    description: 'Nicky Yim is a software developer from Toronto, specializing in front-end development.',
-    keywords: 'Nicky Yim, Nicky, Yim, software developer, Toronto, software engineer, front-end developer, web developer, ASP.NET, C#, javascript, React, GatsbyJS'
+    description: 'Nicky Yim is a software engineer from Toronto, specializing in front-end development.',
+    keywords: 'Nicky Yim, Nicky, Yim, software engineer, Toronto, software developer, front-end developer, web developer, ASP.NET, C#, javascript, React, GatsbyJS'
   },
   plugins: [
     'gatsby-plugin-styled-components',

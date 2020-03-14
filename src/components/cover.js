@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { FaAngleDoubleDown } from 'react-icons/fa'
 
+
 const CoverContainer = styled.div`
     width: 100%;
     min-height: calc(100vh + 50px);
@@ -11,7 +12,7 @@ const CoverContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(#f5f5f5 35%, #ededed 65%);
+    background-image: ${({ theme }) => theme.coverBg};
 `
 
 const Greeting = styled.div`
@@ -21,7 +22,7 @@ const Greeting = styled.div`
 
 const Hello = styled.h3`
     text-decoration: none;
-    color: #666;
+    color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 const Name = styled.h1`
@@ -31,7 +32,7 @@ const Name = styled.h1`
 
 const Desc = styled.h2`
     text-align: right;
-    color: #666;
+    color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 const Bounce = keyframes`
@@ -51,12 +52,12 @@ const ArrowContainer = styled.div`
 `
 
 const ArrowLink = styled.a`
-    color: #333;
+    color: ${({ theme }) => theme.colors.primaryColor};
     cursor: pointer;
     transition: .2s;
 
     :hover {
-        color: #888888;
+        color: ${({ theme }) => theme.colors.secondaryColor};
     }
 `
 

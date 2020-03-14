@@ -52,7 +52,7 @@ nav {
     color: $primaryColor;
 }*/
 
-.nav-list {
+/*.nav-list {
     width: 50%;
     display: flex;
     align-items: center;
@@ -63,9 +63,9 @@ nav {
         list-style: none;
         margin: 0 25px;
     }
-}
+}*/
 
-.nav-item {
+/*.nav-item {
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 5px;
@@ -75,15 +75,15 @@ nav {
     transition: color .5s;
 }
 
-.nav-item-active {
+/*.nav-item-active {
     color: $tertiaryColor;
     border-bottom: 3px solid;
 }
 
-.nav-item:hover {
+/*.nav-item:hover {
     border-bottom: 3px solid;
     color: $primaryColor;
-}
+}*/
 
 @media screen and (max-width: 992px) {
 
@@ -104,7 +104,7 @@ nav {
         display: flex;
     }*/
 
-    .nav-list {
+    /*.nav-list {
         display: none;
         width: 100%;
         flex-direction: column;
@@ -116,5 +116,5 @@ nav {
 
     .nav-list li {
         margin: 20px;
-    }
+    }*/
 }
