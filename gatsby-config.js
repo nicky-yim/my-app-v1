@@ -31,9 +31,6 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Permanent Marker`
-          },
-          {
             family: `Roboto Condensed`,
             variants: [`300`, `400`, `700`]
           }

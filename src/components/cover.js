@@ -2,11 +2,11 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import scrollTo from 'gatsby-plugin-smoothscroll'
-import { FaLongArrowAltDown } from 'react-icons/fa'
+import { FaAngleDoubleDown } from 'react-icons/fa'
 
 const CoverContainer = styled.div`
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh + 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,9 +19,9 @@ const Greeting = styled.div`
     flex-direction: column;
 `
 
-const Hello = styled.h2`
+const Hello = styled.h3`
     text-decoration: none;
-    color: #666666;
+    color: #666;
 `
 
 const Name = styled.h1`
@@ -31,7 +31,7 @@ const Name = styled.h1`
 
 const Desc = styled.h2`
     text-align: right;
-    color: #666666;
+    color: #666;
 `
 
 const Bounce = keyframes`
@@ -51,7 +51,7 @@ const ArrowContainer = styled.div`
 `
 
 const ArrowLink = styled.a`
-    color: #333333;
+    color: #333;
     cursor: pointer;
     transition: .2s;
 
@@ -78,7 +78,7 @@ const Cover = () => {
             <ArrowContainer>
                 <ArrowLink onClick={() => scrollTo('#footer')}>
                     <h1>
-                        <FaLongArrowAltDown />
+                        <FaAngleDoubleDown />
                     </h1>
                 </ArrowLink>
             </ArrowContainer>

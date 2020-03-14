@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import scrollTo from 'gatsby-plugin-smoothscroll'
+
 import { FaBars, FaTimes } from 'react-icons/fa'
+
+import Logo from './logo'
 
 import headerStyle from '../styles/header.module.scss'
 
@@ -17,7 +21,6 @@ const Nav = styled.nav`
     ${({ isScrolled }) => isScrolled && `
         box-shadow: rgba(0, 0, 0, .2) 0 1px 5px 0;
         background-color: #f6f7f7;
-        opacity: .8;
     `}
 `
 
@@ -38,28 +41,12 @@ const NavWrapper = styled.div`
     }
 `
 
-const Logo = styled.div`
+const NavMenu = styled.div`
     width: 50%;
     min-height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    a {
-        font-size: 20px;
-        color: #000000;
-        text-decoration: none;
-        text-transform: uppercase;
-        transition: color .4s;
-    }
-
-    a:hover {
-        color: #777777;
-    }
-
-    a h1 {
-        font-family: "Permanent Marker", "Roboto Condensed", "Segoe UI", "Arial";
-    }
 
     @media (max-width: 992px) {
         padding: 0 20px;
@@ -109,14 +96,12 @@ class Header extends React.Component {
         return (
             <Nav isScrolled={this.state.isScrolled}>
                 <NavWrapper>
-                    <Logo>
-                        <Link to="/">
-                            <h1>&lt;NYIM /&gt;</h1>
-                        </Link>
+                    <NavMenu>
+                        <Logo onClick={() => scrollTo('body')} />
                         <button onClick={this.toggleMenu} className={headerStyle.burger}>
                             {menuIcon}
                         </button>
-                    </Logo>
+                    </NavMenu>
                     <ul className={navListClass}>
                         <li>
                             <Link to="/about" className={headerStyle.navItem} activeClassName={headerStyle.navItemActive}>
