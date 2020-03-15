@@ -12,7 +12,7 @@ const CoverContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: ${({ theme }) => theme.coverBg};
+    background-color: ${({ theme }) => theme.coverBg};
 `
 
 const Greeting = styled.div`
@@ -28,6 +28,7 @@ const Hello = styled.h3`
 const Name = styled.h1`
     font-weight: bold;
     font-size: 6em;
+    color: ${({ theme }) => theme.colors.primaryColor};
 `
 
 const Desc = styled.h2`

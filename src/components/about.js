@@ -39,6 +39,14 @@ const AboutContent = styled.div`
     padding: 80px;
     width: 50%;
     height: 100%;
+
+    @media (max-width: 992px) {
+        width: 80%;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 const AvatarContainer = styled.div`

@@ -15,10 +15,10 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-sass', /* TO BE REMOVED */
     'gatsby-plugin-smoothscroll',
-    'react-icons',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'react-icons',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Icky = styled.span`
     float: left;
     text-transform: none;
-    color: #000;
+    color: ${({ theme }) => theme.colors.primaryColor};
     max-width: 0em;
     opacity: 0;
     transition: all .4s ease-in-out;
@@ -12,7 +12,7 @@ const Icky = styled.span`
 
 const NY = styled.span`
     float: left;
-    color: #000;
+    color: ${({ theme }) => theme.colors.primaryColor};
     opacity: 1;
     transition: all .4s ease-in-out;
 `
@@ -20,7 +20,7 @@ const NY = styled.span`
 const IM = styled(NY)``
 
 const Symbols = styled(NY)`
-    color: #666;
+    color: ${({ theme }) => theme.colors.secondaryColor};
 `
 
 const LogoLink = styled.a`
@@ -34,7 +34,7 @@ const LogoLink = styled.a`
 
     :hover {
         ${NY} {
-            color: #666;
+            color: ${({ theme }) => theme.colors.secondaryColor};
         }
 
         ${IM} {
@@ -42,11 +42,11 @@ const LogoLink = styled.a`
         }
 
         ${Symbols} {
-            color: #ccc;
+            color: ${({ theme }) => theme.colors.tertiaryColor};
         }
 
         ${Icky} {
-            color: #666;
+            color: ${({ theme }) => theme.colors.secondaryColor};
             max-width: 3em;
             opacity: 1;
         }

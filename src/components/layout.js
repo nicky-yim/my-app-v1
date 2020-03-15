@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Roboto Condensed', 'Segoe UI', 'Arial';
-        transition: color .3s ease-out, background .3s ease-out;
     }
 `
 
@@ -47,7 +46,7 @@ class Layout extends React.Component {
                 <Body>
                     <GlobalStyle />
                     <Meta />
-                    <Header toggleTheme={this.toggleTheme} />
+                    <Header isDarkMode={this.state.isDarkMode} toggleTheme={this.toggleTheme} />
                     <Content>
                         {this.props.children}
                     </Content>

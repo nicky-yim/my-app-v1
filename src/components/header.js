@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import scrollTo from "gatsby-plugin-smoothscroll"
 
-import { FaBars, FaTimes } from "react-icons/fa"
+import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa"
 
 import Logo from "./logo"
+import ToggleSwitch from "./toggle-switch"
 
 const Nav = styled.nav`
     background-color: transparent;
@@ -15,11 +16,11 @@ const Nav = styled.nav`
     z-index: 10;
     transition: 0.3s;
 
-    ${({ isScrolled, isExpanded }) =>
+    ${({ isScrolled, isExpanded, theme }) =>
         (isScrolled || isExpanded) &&
         `
-        box-shadow: rgba(0, 0, 0, .2) 0 1px 5px 0;
-        background-color: #f6f7f7;
+        box-shadow: ${theme.boxShadow} 0 1px 5px 0;
+        background-color: ${theme.menuBg};
     `}
 `
 
@@ -30,8 +31,12 @@ const NavWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    @media (max-width: 992px) {
+    @media (max-width: 1388px) {
         width: 80%;
+    }
+
+    @media (max-width: 992px) {
+        width: 90%;
     }
 
     @media (max-width: 768px) {
@@ -41,7 +46,7 @@ const NavWrapper = styled.div`
 `
 
 const NavMenu = styled.div`
-    width: 50%;
+    margin: auto 25px;
     min-height: 10vh;
     display: flex;
     align-items: center;
@@ -49,6 +54,7 @@ const NavMenu = styled.div`
 
     @media (max-width: 992px) {
         padding: 0 20px;
+        margin: auto: 15px;
     }
 
     @media (max-width: 768px) {
@@ -60,7 +66,7 @@ const Burger = styled.button`
     display: none;
     font-size: 1.5em;
     text-decoration: none;
-    color: #000;
+    color: ${({ theme }) => theme.colors.primaryColor};
     background-color: transparent;
     outline: none;
     border: none;
@@ -68,7 +74,7 @@ const Burger = styled.button`
     transition: all 0.4s;
 
     :hover {
-        color: #666;
+        color: ${({ theme }) => theme.colors.secondaryColor};
     }
 
     @media (max-width: 768px) {
@@ -77,11 +83,9 @@ const Burger = styled.button`
 `
 
 const NavList = styled.ul`
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
 
     @media (max-width: 768px) {
         ${({ isExpanded }) =>
@@ -95,6 +99,10 @@ const NavListItem = styled.li`
     list-style: none;
     margin: 0 25px;
 
+    @media (max-width: 992px) {
+        margin: 0 15px;
+    }
+
     @media (max-width: 768px) {
         margin: 20px;
     }
@@ -106,11 +114,11 @@ const NavListLink = styled.a`
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
-    color: #000;
+    color: ${({ theme }) => theme.colors.primaryColor};
     transition: color .3s;
 
     :hover {
-        color #666;
+        color ${({ theme }) => theme.colors.secondaryColor};
         border-bottom: 2px solid;
     }
 `
@@ -168,14 +176,11 @@ class Header extends React.Component {
             <Nav
                 isScrolled={this.state.isScrolled}
                 isExpanded={this.state.isExpanded}
-                ref={node => this.node = node}
+                ref={node => (this.node = node)}
             >
                 <NavWrapper>
                     <NavMenu>
                         <Logo onClick={() => scrollTo("body")} />
-                        <Burger onClick={this.props.toggleTheme}>
-                            <FaTimes />
-                        </Burger>
                         <Burger onClick={this.toggleMenu}>{menuIcon}</Burger>
                     </NavMenu>
                     <NavList isExpanded={this.state.isExpanded}>
@@ -193,6 +198,12 @@ class Header extends React.Component {
                             <NavListLink onClick={() => scrollTo("#contact")}>
                                 Contact
                             </NavListLink>
+                        </NavListItem>
+                        <NavListItem>
+                            <ToggleSwitch
+                                isDarkMode={this.props.isDarkMode}
+                                toggleTheme={this.props.toggleTheme}
+                            />
                         </NavListItem>
                     </NavList>
                 </NavWrapper>

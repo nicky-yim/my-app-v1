@@ -8,19 +8,23 @@ const lightMode = {
         tertiaryColor: `#ccc`,
         fontColor: `#fff`,
     },
-    coverBg: `linear-gradient(#f5f5f5 35%, #ededed 65%)`,
-    background: `#ededed`,
+    background: `#e7e7e7`,
+    boxShadow: `rgba(0, 0, 0, .2)`,
+    coverBg: `linear-gradient(#f5f5f5 35%, #e7e7e7 65%)`,
+    menuBg: `#f6f7f7`,
 }
 
 const darkMode = {
     colors: {
         primaryColor: `#fff`,
-        secondaryColor: `#ccc`,
-        tertiaryColor: `#666`,
+        secondaryColor: `#999`,
+        tertiaryColor: `#333`,
         fontColor: `#000`,
     },
-    coverBg: `linear-gradient(#f5f5f5 35%, #ededed 65%)`,
-    background: `#000`
+    background: `#000`,
+    boxShadow: `rgba(255, 255, 255, .2)`,
+    coverBg: `linear-gradient(#0c0c0c 25%, #000 75%)`,
+    menuBg: `#0c0e0e`,
 }
 
 const Theme = (props) => {

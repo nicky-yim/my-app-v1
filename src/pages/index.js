@@ -48,17 +48,6 @@ const Home = () => {
         <Layout>
             <Cover />
             <About />
-            {/*<Greeting id="about">
-                <Divider>
-                    <DividerIcon />
-                </Divider>
-                <GreetingContent>
-                    <h1>Hello!</h1>
-                    <h2>
-                        I'm Nicky, a software developer from Toronto, Canada.
-                    </h2>
-                </GreetingContent>
-    </Greeting>*/}
         </Layout>
     )
 }
