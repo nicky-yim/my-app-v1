@@ -1,13 +1,25 @@
 import React from 'react'
-import Layout from '../components/layout'
 
-import homeStyle from '../styles/index.module.scss'
+import Layout from '../components/layout'
 
 const Contact = () => {
     return (
         <Layout>
-            <div className={homeStyle.greeting}>
-                <h1>Work in progress... Sorry!</h1>
+            <div>
+                <form name="contact" method="POST">
+                    <p>
+                        <label>Your Name: <input type="text" name="name" /></label>   
+                    </p>
+                    <p>
+                        <label>Your Email: <input type="email" name="email" /></label>
+                    </p>
+                    <p>
+                        <label>Message: <textarea name="message"></textarea></label>
+                    </p>
+                    <p>
+                        <button type="submit">Send</button>
+                    </p>
+                </form>
             </div>
         </Layout>
     )
