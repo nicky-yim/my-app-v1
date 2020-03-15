@@ -11,7 +11,7 @@ const SwitchContainer = styled.div`
 const SwitchIcon = css`
     display: inline-block;
     font-size: 22px;
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
 `
 
 const SwitchLight = styled(FaSun)`
@@ -33,10 +33,10 @@ const ToggleSwitch = (props) => {
                 onChange={props.toggleTheme}
                 checkedIcon={false}
                 uncheckedIcon={false}
-                activeBoxShadow={`0 0 2px 3px ${props.theme.colors.tertiaryColor}`}
-                onColor={props.theme.colors.primaryColor}
-                offColor={props.theme.colors.primaryColor}
-                onHandleColor={props.theme.colors.fontColor}
+                activeBoxShadow={`0 0 2px 3px ${props.theme.tertiaryColor}`}
+                onColor={props.theme.primaryColor}
+                offColor={props.theme.primaryColor}
+                onHandleColor={props.theme.fontColor}
                 height={22}
                 width={40}
             />

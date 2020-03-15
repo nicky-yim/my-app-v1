@@ -1,11 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import scrollTo from "gatsby-plugin-smoothscroll"
+import React from 'react'
+import styled from 'styled-components'
+import scrollTo from 'gatsby-plugin-smoothscroll'
+import { FaBars, FaTimes } from 'react-icons/fa'
 
-import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa"
-
-import Logo from "./logo"
-import ToggleSwitch from "./toggle-switch"
+import Logo from './logo'
+import ToggleSwitch from './toggle-switch'
 
 const Nav = styled.nav`
     background-color: transparent;
@@ -66,7 +65,7 @@ const Burger = styled.button`
     display: none;
     font-size: 1.5em;
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     background-color: transparent;
     outline: none;
     border: none;
@@ -74,7 +73,7 @@ const Burger = styled.button`
     transition: all 0.4s;
 
     :hover {
-        color: ${({ theme }) => theme.colors.secondaryColor};
+        color: ${({ theme }) => theme.secondaryColor};
     }
 
     @media (max-width: 768px) {
@@ -114,11 +113,11 @@ const NavListLink = styled.a`
     letter-spacing: 3px;
     text-transform: uppercase;
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     transition: color .3s;
 
     :hover {
-        color ${({ theme }) => theme.colors.secondaryColor};
+        color ${({ theme }) => theme.secondaryColor};
         border-bottom: 2px solid;
     }
 `
@@ -135,15 +134,13 @@ class Header extends React.Component {
     }
 
     componentDidMount = () => {
-        window.addEventListener("scroll", this.handleScroll, { passive: true })
-        window.addEventListener("mousedown", this.handleClick, false)
+        window.addEventListener('scroll', this.handleScroll, { passive: true })
+        window.addEventListener('mousedown', this.handleClick, false)
     }
 
     componentWillUnmount = () => {
-        window.removeEventListener("scroll", this.handleScroll, {
-            passive: true,
-        })
-        window.removeEventListener("mousedown", this.handleClick, false)
+        window.removeEventListener('scroll', this.handleScroll, { passive: true })
+        window.removeEventListener('mousedown', this.handleClick, false)
     }
 
     toggleMenu = () => {
@@ -153,8 +150,7 @@ class Header extends React.Component {
     }
 
     handleScroll = () => {
-        let scrollTop =
-            document.body !== undefined ? document.body.scrollTop : 0
+        let scrollTop = document.body !== undefined ? document.body.scrollTop : 0
 
         this.setState({
             isScrolled: (window.pageYOffset || scrollTop) > 0,
@@ -180,22 +176,22 @@ class Header extends React.Component {
             >
                 <NavWrapper>
                     <NavMenu>
-                        <Logo onClick={() => scrollTo("body")} />
+                        <Logo onClick={() => scrollTo('body')} />
                         <Burger onClick={this.toggleMenu}>{menuIcon}</Burger>
                     </NavMenu>
                     <NavList isExpanded={this.state.isExpanded}>
                         <NavListItem>
-                            <NavListLink onClick={() => scrollTo("#about")}>
+                            <NavListLink onClick={() => scrollTo('#about')}>
                                 About
                             </NavListLink>
                         </NavListItem>
                         <NavListItem>
-                            <NavListLink onClick={() => scrollTo("#projects")}>
+                            <NavListLink onClick={() => scrollTo('#projects')}>
                                 Projects
                             </NavListLink>
                         </NavListItem>
                         <NavListItem>
-                            <NavListLink onClick={() => scrollTo("#contact")}>
+                            <NavListLink onClick={() => scrollTo('#contact')}>
                                 Contact
                             </NavListLink>
                         </NavListItem>

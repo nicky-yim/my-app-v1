@@ -11,12 +11,9 @@ const Card = props => {
             target="_blank"
             rel="noopener noreferrer">
             <div className={cardStyle.card}>
-                {
-                    props.usesCustomOpenGraphImage &&
-                    <div className={cardStyle.preview}>
-                        <Img fixed={props.imageFile.childImageSharp.fixed} />
-                    </div>
-                }
+                <div className={cardStyle.preview}>
+                    <Img fixed={props.imageFile.childImageSharp.fixed} />
+                </div>
                 <div className={cardStyle.desc}>
                     {props.name}
                 </div>

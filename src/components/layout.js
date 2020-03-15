@@ -1,30 +1,10 @@
 import React from 'react'
-import styled, { createGlobalStyle} from 'styled-components'
+import { GlobalStyle, Body, Content } from '../styles/global-styles'
 
 import Theme from './theme'
-
 import Meta from './meta'
 import Header from './header'
 import Footer from './footer'
-
-
-const GlobalStyle = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Roboto Condensed', 'Segoe UI', 'Arial';
-    }
-`
-
-const Body = styled.div`
-    background: ${props => props.theme.background};
-    font-weight: 300;
-`
-
-const Content = styled.div`
-    width: 100%;
-`
 
 class Layout extends React.Component {
     constructor(props) {
@@ -34,22 +14,22 @@ class Layout extends React.Component {
     }
 
     toggleTheme = () => {
-        console.log(this.state.isDarkMode);
         this.setState({
-            isDarkMode: !this.state.isDarkMode
+            isDarkMode: !this.state.isDarkMode,
         })
     }
 
     render() {
         return (
             <Theme isDarkMode={this.state.isDarkMode}>
+                <GlobalStyle />
                 <Body>
-                    <GlobalStyle />
                     <Meta />
-                    <Header isDarkMode={this.state.isDarkMode} toggleTheme={this.toggleTheme} />
-                    <Content>
-                        {this.props.children}
-                    </Content>
+                    <Header
+                        isDarkMode={this.state.isDarkMode}
+                        toggleTheme={this.toggleTheme}
+                    />
+                    <Content>{this.props.children}</Content>
                     <Footer />
                 </Body>
             </Theme>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Icky = styled.span`
     float: left;
     text-transform: none;
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     max-width: 0em;
     opacity: 0;
     transition: all .4s ease-in-out;
@@ -12,7 +12,7 @@ const Icky = styled.span`
 
 const NY = styled.span`
     float: left;
-    color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
     opacity: 1;
     transition: all .4s ease-in-out;
 `
@@ -20,7 +20,7 @@ const NY = styled.span`
 const IM = styled(NY)``
 
 const Symbols = styled(NY)`
-    color: ${({ theme }) => theme.colors.secondaryColor};
+    color: ${({ theme }) => theme.secondaryColor};
 `
 
 const LogoLink = styled.a`
@@ -29,12 +29,12 @@ const LogoLink = styled.a`
     cursor: pointer;
 
     span {
-        font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+        font-family: ${({ theme }) => theme.fonts.fonts.code};
     }
 
     :hover {
         ${NY} {
-            color: ${({ theme }) => theme.colors.secondaryColor};
+            color: ${({ theme }) => theme.secondaryColor};
         }
 
         ${IM} {
@@ -42,11 +42,11 @@ const LogoLink = styled.a`
         }
 
         ${Symbols} {
-            color: ${({ theme }) => theme.colors.tertiaryColor};
+            color: ${({ theme }) => theme.tertiaryColor};
         }
 
         ${Icky} {
-            color: ${({ theme }) => theme.colors.secondaryColor};
+            color: ${({ theme }) => theme.secondaryColor};
             max-width: 3em;
             opacity: 1;
         }
