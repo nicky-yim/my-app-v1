@@ -12,6 +12,7 @@ module.exports = {
             'Nicky Yim is a software engineer from Toronto, specializing in front-end development.',
         keywords:
             'Nicky Yim, Nicky, Yim, software engineer, Toronto, software developer, front-end developer, web developer, ASP.NET, C#, javascript, React, GatsbyJS',
+        repo: `https://github.com/nicky-yim`,
     },
     plugins: [
         'gatsby-plugin-styled-components',

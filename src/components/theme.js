@@ -16,6 +16,8 @@ const lightMode = {
     boxShadow: `rgba(0, 0, 0, .2)`,
     coverBg: `linear-gradient(#f5f5f5 35%, #e7e7e7 65%)`,
     menuBg: `#f6f7f7`,
+    cardHover: `rgba(255, 255, 255, .9)`,
+    cardInfo: `rgba(0, 0, 0, .8)`,
 }
 
 const darkMode = {
@@ -28,6 +30,8 @@ const darkMode = {
     boxShadow: `rgba(255, 255, 255, .2)`,
     coverBg: `linear-gradient(#0c0c0c 25%, #000 75%)`,
     menuBg: `#0c0e0e`,
+    cardHover: `rgba(0, 0, 0, .9)`,
+    cardInfo: `rgba(255, 255, 255, .8)`,
 }
 
 const Theme = props => {

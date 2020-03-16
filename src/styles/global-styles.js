@@ -13,6 +13,8 @@ const Body = styled.div`
     background: ${({ theme }) => theme.background};
     font-weight: 300;
     font-size: 16px;
+    max-width: 100vw;
+    overflow-x: hidden;
 `
 
 const Content = styled.div`
@@ -52,6 +54,9 @@ const SectionContent = styled.div`
     padding-right: 15px;
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media (max-width: 992px) {
         width: 80%;
@@ -62,6 +67,10 @@ const SectionContent = styled.div`
     }
 `
 
+const Heading = styled.h1`
+    margin-bottom: 20px;
+`
+
 export {
     GlobalStyle,
     Body,
@@ -70,4 +79,5 @@ export {
     SectionContainer,
     SectionDivider,
     SectionContent,
+    Heading,
 }

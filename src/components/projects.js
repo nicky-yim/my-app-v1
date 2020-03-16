@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { FaBriefcase, FaDesktop, FaLaptop } from 'react-icons/fa'
+import { FaBriefcase } from 'react-icons/fa'
 
 import Card from "../components/card"
 
@@ -10,6 +10,7 @@ import {
     SectionContainer,
     SectionDivider,
     SectionContent,
+    Heading,
 } from '../styles/global-styles'
 
 const ProjectsOffset = styled(SectionOffset)`
@@ -25,13 +26,45 @@ const ProjectsDivider = styled(SectionDivider)`
     background: ${({ theme }) => theme.secondaryColor};
 `
 
-const ProjectsIcon = styled(FaLaptop)`
+const ProjectsContent = styled(SectionContent)`
+    width: 80%;
+
+    @media (max-width: 1200px) {
+        width: 100%;
+    }
+`
+
+const ProjectsIcon = styled(FaBriefcase)`
     color: ${({ theme }) => theme.background};
     font-size: 2em;
 `
 
+const CardsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+
+const RepoButton = styled.a`
+    width: 300px;
+    padding: 15px 45px;
+    margin: 20px;
+    text-decoration: none;
+    color: ${({ theme }) => theme.primaryColor};
+    background-color: ${({ theme }) => theme.fontColor};
+    border-radius: 10px;
+    border: 2px solid ${({ theme }) => theme.secondaryColor};
+    transition: all .3s;
+
+    :hover {
+        color: ${({ theme }) => theme.fontColor};
+        background-color: ${({ theme }) => theme.secondaryColor};
+        border: 2px solid ${({ theme }) => theme.secondaryColor};
+    }
+`
+
 const Projects = () => {
-    const { github } = useStaticQuery(graphql`
+    const { github, site } = useStaticQuery(graphql`
     {
         github {
             user(login: "nicky-yim") {
@@ -43,13 +76,18 @@ const Projects = () => {
                         openGraphImageUrl
                         imageFile {
                             childImageSharp {
-                                fixed(width: 400, height: 400, quality: 90, fit: CONTAIN) {
-                                    ...GatsbyImageSharpFixed
+                                fluid(maxWidth: 400, maxHeight: 350, quality: 90, fit: CONTAIN) {
+                                    ...GatsbyImageSharpFluid
                                 }
                             }
                         }
                     }
                 }
+            }
+        },
+        site {
+            siteMetadata {
+                repo
             }
         }
     }`)
@@ -61,13 +99,23 @@ const Projects = () => {
                 <ProjectsDivider>
                     <ProjectsIcon />
                 </ProjectsDivider>
-                <SectionContent>
-                    {
-                        github.user.pinnedRepositories.nodes.map(item =>
-                            <Card {...item} />
-                        )
-                    }
-                </SectionContent>
+                <ProjectsContent>
+                    <Heading>Nicky's Projects</Heading>
+                    <CardsContainer>
+                        {
+                            github.user.pinnedRepositories.nodes.map(item =>
+                                <Card key={item.name} {...item} />
+                            )
+                        }
+                    </CardsContainer>
+                    <RepoButton
+                        href={site.siteMetadata.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >
+                        View More on GitHub
+                    </RepoButton>
+                </ProjectsContent>
             </ProjectsSection>
         </section>
     )

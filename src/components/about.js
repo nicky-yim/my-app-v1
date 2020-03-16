@@ -9,6 +9,7 @@ import {
     SectionContainer,
     SectionDivider,
     SectionContent,
+    Heading,
 } from '../styles/global-styles'
 
 const AboutOffset = styled(SectionOffset)`
@@ -30,7 +31,7 @@ const AboutIcon = styled(FaUser)`
 `
 
 const AvatarContainer = styled.div`
-    margin: 10px;
+    margin: 15px;
 `
 
 const Avatar = styled(Img)`
@@ -87,6 +88,9 @@ const About = () => {
             }
             data: markdownRemark(frontmatter: { title: { eq: "about" } }) {
                 html
+                frontmatter {
+                    heading
+                }
             }
         }
     `)
@@ -99,6 +103,9 @@ const About = () => {
                     <AboutIcon />
                 </AboutDivider>
                 <SectionContent>
+                    <Heading>
+                        {data.frontmatter.heading}
+                    </Heading>
                     <AvatarContainer>
                         <Avatar fixed={myAvatar.childImageSharp.fixed} />
                     </AvatarContainer>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaUser, FaSuitcase, FaComments } from 'react-icons/fa'
 
 import Layout from '../components/layout'
 import Cover from '../components/cover'

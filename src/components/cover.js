@@ -8,6 +8,7 @@ import { FaAngleDoubleDown } from 'react-icons/fa'
 const CoverContainer = styled.section`
     width: 100%;
     min-height: 100vh;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +76,7 @@ const Cover = () => {
         <CoverContainer>
             <Greeting dangerouslySetInnerHTML={{ __html: data.html }} />
             <ArrowContainer>
-                <ArrowLink onClick={() => scrollTo('#footer')}>
+                <ArrowLink onClick={() => scrollTo('#about')}>
                     <h1>
                         <FaAngleDoubleDown />
                     </h1>

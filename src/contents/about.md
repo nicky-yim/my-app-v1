@@ -1,14 +1,12 @@
 ---
 title: "about"
+heading: "About Nicky"
 ---
+Nicky is a software engineer from Toronto, who specializes in front-end development. He began his journey as an **`ASP.NET C#`** software developer.
 
-### Hey, I'm Nicky Yim.
+Lately, he's been learning **`React`** in his free time. This site is proudly built by himself using **`Gatsby`**, a static site generating framework based on **`React`**!
 
-I'm a software engineer from Toronto, who specializes in front-end development. I began my journey as an **`ASP.NET C#`** software developer.
-
-Lately, I've been learning **`React`** in my free time. This site is proudly built by myself using **`Gatsby`**, a static site generating framework based on **`React`**!
-
-Things I've been working with recently:
+Things Nicky's been working with recently:
 
  - `ASP.NET`
  - `C#`
