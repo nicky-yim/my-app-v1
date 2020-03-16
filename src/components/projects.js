@@ -52,7 +52,7 @@ const RepoButton = styled.a`
     text-decoration: none;
     color: ${({ theme }) => theme.primaryColor};
     background-color: ${({ theme }) => theme.fontColor};
-    border-radius: 10px;
+    border-radius: 5px;
     border: 2px solid ${({ theme }) => theme.secondaryColor};
     transition: all .3s;
 

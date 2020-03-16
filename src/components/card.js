@@ -13,7 +13,7 @@ const CardImg = styled(Img)`
     display: block;
     width: 400px;
     height: 350px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: ${({ theme }) => theme.boxShadow} 0 1px 5px 2px;
 
     :before {
@@ -24,7 +24,6 @@ const CardImg = styled(Img)`
         height: 100%;
         top: 0;
         left: 0;
-        border-radius: 10px;
         background: ${({ theme }) => theme.cardHover};
         z-index: 2;
         transition: 0.3s;
@@ -35,7 +34,7 @@ const CardImg = styled(Img)`
 const CardInfo = styled.div`
     position: absolute;
     padding: 15px;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
     width: calc(100% - 20px);
     color: ${({ theme }) => theme.fontColor};
     font-weight: bold;
