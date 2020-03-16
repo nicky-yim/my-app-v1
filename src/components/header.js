@@ -139,7 +139,9 @@ class Header extends React.Component {
     }
 
     componentWillUnmount = () => {
-        window.removeEventListener('scroll', this.handleScroll, { passive: true })
+        window.removeEventListener('scroll', this.handleScroll, {
+            passive: true,
+        })
         window.removeEventListener('mousedown', this.handleClick, false)
     }
 
@@ -150,7 +152,8 @@ class Header extends React.Component {
     }
 
     handleScroll = () => {
-        let scrollTop = document.body !== undefined ? document.body.scrollTop : 0
+        let scrollTop =
+            document.body !== undefined ? document.body.scrollTop : 0
 
         this.setState({
             isScrolled: (window.pageYOffset || scrollTop) > 0,

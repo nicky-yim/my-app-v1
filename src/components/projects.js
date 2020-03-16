@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { FaBriefcase } from 'react-icons/fa'
 
-import Card from "../components/card"
+import Card from '../components/card'
 
 import {
     SectionOffset,
@@ -11,10 +11,11 @@ import {
     SectionDivider,
     SectionContent,
     Heading,
+    ButtonStyle,
 } from '../styles/global-styles'
 
 const ProjectsOffset = styled(SectionOffset)`
-    background-color: ${({ theme}) => theme.secondaryColor};
+    background-color: ${({ theme }) => theme.secondaryColor};
 `
 
 const ProjectsSection = styled(SectionContainer)`
@@ -46,15 +47,10 @@ const CardsContainer = styled.div`
 `
 
 const RepoButton = styled.a`
-    width: 300px;
-    padding: 15px 45px;
-    margin: 20px;
-    text-decoration: none;
-    color: ${({ theme }) => theme.primaryColor};
-    background-color: ${({ theme }) => theme.fontColor};
-    border-radius: 5px;
+    ${ButtonStyle}
+    color: ${({ theme }) => theme.secondaryColor};
+    background-color: ${({ theme }) => theme.background};
     border: 2px solid ${({ theme }) => theme.secondaryColor};
-    transition: all .3s;
 
     :hover {
         color: ${({ theme }) => theme.fontColor};
@@ -65,32 +61,38 @@ const RepoButton = styled.a`
 
 const Projects = () => {
     const { github, site } = useStaticQuery(graphql`
-    {
-        github {
-            user(login: "nicky-yim") {
-                pinnedRepositories(first: 6) {
-                    nodes {
-                        name
-                        description
-                        url
-                        openGraphImageUrl
-                        imageFile {
-                            childImageSharp {
-                                fluid(maxWidth: 400, maxHeight: 350, quality: 90, fit: CONTAIN) {
-                                    ...GatsbyImageSharpFluid
+        {
+            github {
+                user(login: "nicky-yim") {
+                    pinnedRepositories(first: 6) {
+                        nodes {
+                            name
+                            description
+                            url
+                            openGraphImageUrl
+                            imageFile {
+                                childImageSharp {
+                                    fluid(
+                                        maxWidth: 400
+                                        maxHeight: 350
+                                        quality: 90
+                                        fit: CONTAIN
+                                    ) {
+                                        ...GatsbyImageSharpFluid
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        },
-        site {
-            siteMetadata {
-                repo
+            site {
+                siteMetadata {
+                    repo
+                }
             }
         }
-    }`)
+    `)
 
     return (
         <section id="projects">
@@ -102,18 +104,16 @@ const Projects = () => {
                 <ProjectsContent>
                     <Heading>Nicky's Projects</Heading>
                     <CardsContainer>
-                        {
-                            github.user.pinnedRepositories.nodes.map(item =>
-                                <Card key={item.name} {...item} />
-                            )
-                        }
+                        {github.user.pinnedRepositories.nodes.map(item => (
+                            <Card key={item.name} {...item} />
+                        ))}
                     </CardsContainer>
                     <RepoButton
                         href={site.siteMetadata.repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        >
-                        View More on GitHub
+                    >
+                        View more on GitHub
                     </RepoButton>
                 </ProjectsContent>
             </ProjectsSection>

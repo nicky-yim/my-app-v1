@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -71,6 +71,15 @@ const Heading = styled.h1`
     margin-bottom: 20px;
 `
 
+const ButtonStyle = css`
+    width: 300px;
+    text-decoration: none;
+    padding: 15px 45px;
+    margin: 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+`
+
 export {
     GlobalStyle,
     Body,
@@ -80,4 +89,5 @@ export {
     SectionDivider,
     SectionContent,
     Heading,
+    ButtonStyle,
 }
