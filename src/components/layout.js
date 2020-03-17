@@ -2,7 +2,7 @@ import React from 'react'
 import { GlobalStyle, Body, Content } from '../styles/global-styles'
 
 import Theme from './theme'
-import Meta from './meta'
+import SEO from './seo'
 import Header from './header'
 import Footer from './footer'
 
@@ -24,7 +24,7 @@ class Layout extends React.Component {
             <Theme isDarkMode={this.state.isDarkMode}>
                 <GlobalStyle />
                 <Body>
-                    <Meta />
+                    <SEO />
                     <Header
                         isDarkMode={this.state.isDarkMode}
                         toggleTheme={this.toggleTheme}
