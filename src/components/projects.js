@@ -72,13 +72,13 @@ const Projects = () => {
                             openGraphImageUrl
                             imageFile {
                                 childImageSharp {
-                                    fluid(
-                                        maxWidth: 400
-                                        maxHeight: 350
-                                        quality: 90
+                                    fixed(
+                                        width: 400
+                                        height: 350
+                                        quality: 50
                                         fit: CONTAIN
                                     ) {
-                                        ...GatsbyImageSharpFluid_withWebp
+                                        ...GatsbyImageSharpFixed_withWebp
                                     }
                                 }
                             }

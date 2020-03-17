@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-const CardWrapper = styled.a`
+const CardWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,8 +11,6 @@ const CardWrapper = styled.a`
 
 const CardImg = styled(Img)`
     display: block;
-    width: 400px;
-    height: 350px;
     border-radius: 5px;
     box-shadow: ${({ theme }) => theme.boxShadow} 0 1px 5px 2px;
 
@@ -54,9 +52,7 @@ const CardDesc = styled.div`
     transition: opacity 0.3s;
 `
 
-const CardItem = styled.div`
-    max-width: 100vw;
-    max-height: 100%;
+const CardItem = styled.a`
     padding: 10px;
     display: flex;
     align-items: flex-end;
@@ -84,14 +80,14 @@ const CardItem = styled.div`
 
 const Card = props => {
     return (
-        <CardWrapper
-            href={props.url}
-            alt={props.name}
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <CardItem>
-                <CardImg fluid={props.imageFile.childImageSharp.fluid} />
+        <CardWrapper>
+            <CardItem
+                href={props.url}
+                alt={props.name}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <CardImg fixed={props.imageFile.childImageSharp.fixed} />
                 <CardInfo>{props.name}</CardInfo>
                 <CardDesc>{props.description}</CardDesc>
             </CardItem>
