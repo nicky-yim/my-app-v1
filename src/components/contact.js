@@ -98,8 +98,6 @@ const SubmitButton = styled.button`
     }
 `
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
-
 function encode(data) {
     return Object.keys(data)
         .map(
@@ -191,7 +189,7 @@ class Contact extends React.Component {
                                 required="true"
                             />
                             <ReCAPTCHA
-                                sitekey={RECAPTCHA_KEY}
+                                sitekey={process.env.SITE_RECAPTCHA_KEY}
                                 onChange={this.handleRecaptcha}
                             />
                             <SubmitButton type="submit">
