@@ -1,15 +1,12 @@
 import React from 'react'
-
-import Layout from '../components/layout'
+import StaticLayout from '../components/static-layout'
 
 const ThankYou = () => {
     return (
-        <Layout>
-            <div>
-                <h1>Thank you</h1>
-                <p>Your form has been received.</p>
-            </div>
-        </Layout>
+        <StaticLayout>
+            <h1>Thank you</h1>
+            <p>Your form has been received.</p>
+        </StaticLayout>
     )
 }
 
