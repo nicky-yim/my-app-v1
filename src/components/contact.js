@@ -106,18 +106,19 @@ const Contact = () => {
                         name="contact"
                         method="POST"
                         data-netlify="true"
-                        netlify-honeypot="bot-field"
-                        data-netlify-recaptcha="true"
                     >
-                        <input type="hidden" name="form-name" value="contact" />
-                        <input type="hidden" name="bot-field" />
+                        <input
+                            type="hidden"
+                            name="form-name"
+                            value="Contact Form"
+                        />
                         <TextBox
                             type="text"
                             name="name"
                             placeholder="Who are you?"
                         />
                         <TextBox
-                            type="text"
+                            type="email"
                             name="email"
                             placeholder="What's your email address?"
                         />
@@ -131,7 +132,6 @@ const Contact = () => {
                             name="message"
                             placeholder="What's the message?"
                         />
-                        <div data-netlify-recaptcha="true"></div>
                         <SubmitButton type="submit">
                             Get in touch with Nicky
                         </SubmitButton>
