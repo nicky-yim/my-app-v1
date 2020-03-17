@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css, withTheme } from 'styled-components'
-import Switch from 'react-switch'
+import Switch from '@nicky-yim/react-switch'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
 const SwitchContainer = styled.div`
@@ -28,23 +28,18 @@ const ToggleSwitch = props => {
     return (
         <SwitchContainer>
             <SwitchLight />
-            <label name="switch" htmlFor="switch">
-                <Switch
-                    name="switch"
-                    aria-role="checkbox"
-                    aria-checked={props.isDarkMode}
-                    checked={props.isDarkMode}
-                    onChange={props.toggleTheme}
-                    checkedIcon={false}
-                    uncheckedIcon={false}
-                    activeBoxShadow={`0 0 2px 3px ${props.theme.tertiaryColor}`}
-                    onColor={props.theme.primaryColor}
-                    offColor={props.theme.primaryColor}
-                    onHandleColor={props.theme.fontColor}
-                    height={22}
-                    width={40}
-                />
-            </label>
+            <Switch
+                checked={props.isDarkMode}
+                onChange={props.toggleTheme}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                activeBoxShadow={`0 0 2px 3px ${props.theme.tertiaryColor}`}
+                onColor={props.theme.primaryColor}
+                offColor={props.theme.primaryColor}
+                onHandleColor={props.theme.fontColor}
+                height={22}
+                width={40}
+            />
             <SwitchDark />
         </SwitchContainer>
     )
