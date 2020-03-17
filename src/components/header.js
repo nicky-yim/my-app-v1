@@ -180,7 +180,9 @@ class Header extends React.Component {
                 <NavWrapper>
                     <NavMenu>
                         <Logo onClick={() => scrollTo('body')} />
-                        <Burger onClick={this.toggleMenu}>{menuIcon}</Burger>
+                        <Burger onClick={this.toggleMenu} aria-label="menu">
+                            {menuIcon}
+                        </Burger>
                     </NavMenu>
                     <NavList isExpanded={this.state.isExpanded}>
                         <NavListItem>
