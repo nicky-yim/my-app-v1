@@ -122,7 +122,7 @@ class Contact extends React.Component {
                 ...this.state,
             }),
         })
-            .then(() => navigate('/'))
+            .then(() => navigate('/thank-you'))
             .catch(error => alert(error))
     }
 

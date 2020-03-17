@@ -13,10 +13,26 @@ module.exports = {
         keywords:
             'Nicky Yim, Nicky, Yim, software engineer, Toronto, software developer, front-end developer, web developer, ASP.NET, C#, javascript, React, GatsbyJS',
         repo: `https://github.com/nicky-yim`,
+        sites: [
+            {
+                title: 'Email',
+                icon: 'FaEnvelope',
+                href: 'mailto:nicky.yim@outlook.com',
+            },
+            {
+                title: 'GitHub',
+                icon: 'FaGithub',
+                href: 'https://github.com/nicky-yim',
+            },
+            {
+                title: 'LinkedIn',
+                icon: 'FaLinkedin',
+                href: 'https://www.linkedin.com/in/nicky-yim',
+            },
+        ],
     },
     plugins: [
         'gatsby-plugin-styled-components',
-        'gatsby-plugin-sass' /* TO BE REMOVED */,
         'gatsby-plugin-smoothscroll',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sharp',
