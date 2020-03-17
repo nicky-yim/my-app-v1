@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { FaComments } from 'react-icons/fa'
-import ReCAPTCHA from 'react-google-recaptcha'
 
 import {
     SectionOffset,
@@ -106,8 +105,6 @@ function encode(data) {
         .join('&')
 }
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
-
 class Contact extends React.Component {
     constructor(props) {
         super(props)
@@ -130,15 +127,10 @@ class Contact extends React.Component {
             }),
         })
             .then(() => navigate('/thank-you'))
-            .catch(error => alert(error))
-    }
-
-    handleRecaptcha = value => {
-        this.setState({ 'g-recaptcha-response': value })
+            .catch(error => console.log(error))
     }
 
     render() {
-        console.log(process.env)
         return (
             <section id="contact">
                 <ContactOffset />
@@ -153,7 +145,6 @@ class Contact extends React.Component {
                             method="POST"
                             data-netlify="true"
                             data-netlify-honeypot="bot-field"
-                            data-netlify-recaptcha="true"
                             onSubmit={this.handleSubmit}
                         >
                             <input
@@ -195,11 +186,6 @@ class Contact extends React.Component {
                                 placeholder="What's the message?"
                                 onChange={this.handleChange}
                                 required="true"
-                            />
-                            <ReCAPTCHA
-                                ref="recaptcha"
-                                sitekey={RECAPTCHA_KEY}
-                                onChange={this.handleRecaptcha}
                             />
                             <SubmitButton type="submit">
                                 Get in touch with Nicky
