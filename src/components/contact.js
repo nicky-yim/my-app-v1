@@ -106,7 +106,14 @@ function encode(data) {
         .join('&')
 }
 
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+
 class Contact extends React.Component {
+    constructor(props) {
+        super(props)
+        this.setState({})
+    }
+
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
@@ -189,7 +196,8 @@ class Contact extends React.Component {
                                 required="true"
                             />
                             <ReCAPTCHA
-                                sitekey={process.env.SITE_RECAPTCHA_KEY}
+                                ref="recaptcha"
+                                sitekey={RECAPTCHA_KEY}
                                 onChange={this.handleRecaptcha}
                             />
                             <SubmitButton type="submit">
