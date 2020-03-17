@@ -70,6 +70,10 @@ const TextStyle = css`
     }
 `
 
+const Label = styled.label`
+    width: 100%;
+`
+
 const TextBox = styled.input`
     ${ButtonStyle}
     ${TextStyle}
@@ -78,6 +82,10 @@ const TextBox = styled.input`
 const TextArea = styled.textarea`
     ${ButtonStyle}
     ${TextStyle}
+`
+
+const HiddenDiv = styled.div`
+    display: none;
 `
 
 const SubmitButton = styled.button`
@@ -147,49 +155,73 @@ class Contact extends React.Component {
                             data-netlify-honeypot="bot-field"
                             onSubmit={this.handleSubmit}
                         >
-                            <input
-                                type="hidden"
-                                name="form-name"
-                                value="Contact Form"
-                                onChange={this.handleChange}
-                                required="true"
-                            />
-                            <input
-                                type="hidden"
-                                name="bot-field"
-                                onChange={this.handleChange}
-                            />
-                            <TextBox
-                                type="text"
-                                name="name"
-                                placeholder="Who are you?"
-                                onChange={this.handleChange}
-                                required="true"
-                            />
-                            <TextBox
-                                type="email"
-                                name="email"
-                                placeholder="What's your email address?"
-                                onChange={this.handleChange}
-                                required="true"
-                            />
-                            <TextBox
-                                type="text"
-                                name="subject"
-                                placeholder="What's the subject?"
-                                onChange={this.handleChange}
-                                required="true"
-                            />
-                            <TextArea
-                                rows="5"
-                                name="message"
-                                placeholder="What's the message?"
-                                onChange={this.handleChange}
-                                required="true"
-                            />
-                            <SubmitButton type="submit">
-                                Get in touch with Nicky
-                            </SubmitButton>
+                            <HiddenDiv>
+                                <Label name="form-name" htmlFor="form-name">
+                                    <input
+                                        type="hidden"
+                                        id="form-name"
+                                        name="form-name"
+                                        aria-label="form-name"
+                                        value="Contact Form"
+                                        onChange={this.handleChange}
+                                        required="true"
+                                    />
+                                </Label>
+                                <Label name="bot-field" htmlFor="bot-field">
+                                    <input
+                                        type="hidden"
+                                        id="bot-field"
+                                        name="bot-field"
+                                        aria-label="bot-field"
+                                        onChange={this.handleChange}
+                                    />
+                                </Label>
+                            </HiddenDiv>
+                            <Label name="name" htmlFor="name">
+                                <TextBox
+                                    type="text"
+                                    name="name"
+                                    aria-label="name"
+                                    placeholder="Who are you?"
+                                    onChange={this.handleChange}
+                                    required="true"
+                                />
+                            </Label>
+                            <Label name="email" htmlFor="email">
+                                <TextBox
+                                    type="email"
+                                    name="email"
+                                    aria-label="email"
+                                    placeholder="What's your email address?"
+                                    onChange={this.handleChange}
+                                    required="true"
+                                />
+                            </Label>
+                            <Label name="subject" htmlFor="subject">
+                                <TextBox
+                                    type="text"
+                                    name="subject"
+                                    aria-label="subject"
+                                    placeholder="What's the subject?"
+                                    onChange={this.handleChange}
+                                    required="true"
+                                />
+                            </Label>
+                            <Label name="message" htmlFor="message">
+                                <TextArea
+                                    rows="5"
+                                    name="message"
+                                    aria-label="message"
+                                    placeholder="What's the message?"
+                                    onChange={this.handleChange}
+                                    required="true"
+                                />
+                            </Label>
+                            <Label name="submit" htmlFor="submit">
+                                <SubmitButton type="submit">
+                                    Get in touch with Nicky
+                                </SubmitButton>
+                            </Label>
                         </ContactContent>
                     </SectionContent>
                 </ContactContainer>

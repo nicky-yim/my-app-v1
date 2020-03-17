@@ -109,6 +109,7 @@ const Projects = () => {
                         ))}
                     </CardsContainer>
                     <RepoButton
+                        role="button"
                         href={site.siteMetadata.repo}
                         target="_blank"
                         rel="noopener noreferrer"

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { GlobalStyle, Body, ButtonStyle } from '../styles/global-styles'
 import Theme from '../components/theme'
-import Meta from '../components/meta'
+import SEO from '../components/seo'
 
 const Container = styled.section`
     width: 100%;
@@ -56,7 +56,7 @@ const StaticLayout = props => {
         <Theme>
             <GlobalStyle />
             <Body>
-                <Meta />
+                <SEO />
                 <Container>
                     <Wrapper>
                         {props.children}
