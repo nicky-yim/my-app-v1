@@ -23,6 +23,7 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-transformer-remark',
         'react-icons',
+        'react-google-recaptcha',
         {
             resolve: `gatsby-source-filesystem`,
             options: {
