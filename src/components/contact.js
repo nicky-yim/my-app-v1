@@ -183,7 +183,7 @@ class Contact extends React.Component {
                                 onChange={this.handleChange}
                                 required="true"
                             />
-                            <ReCAPTCHA sitekey={process.env.RECAPTCHA_KEY} />
+                            <ReCAPTCHA sitekey={process.env.GATSBY_RECAPTCHA_KEY} />
                             <SubmitButton type="submit">
                                 Get in touch with Nicky
                             </SubmitButton>
