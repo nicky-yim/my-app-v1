@@ -10,6 +10,7 @@ import {
     Heading,
     ButtonStyle,
 } from '../styles/global-styles'
+import { navigate } from 'gatsby'
 
 const ContactOffset = styled(SectionOffset)`
     background-color: ${({ theme }) => theme.background};
@@ -34,6 +35,10 @@ const ContactContent = styled.form`
     margin: auto;
     padding-bottom: 30px;
     font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -92,54 +97,105 @@ const SubmitButton = styled.button`
     }
 `
 
-const Contact = () => {
-    return (
-        <section id="contact">
-            <ContactOffset />
-            <ContactContainer>
-                <ContactDivider>
-                    <ContactIcon />
-                </ContactDivider>
-                <SectionContent>
-                    <Heading>Contact Nicky</Heading>
-                    <ContactContent
-                        name="contact"
-                        method="POST"
-                        data-netlify="true"
-                    >
-                        <input
-                            type="hidden"
-                            name="form-name"
-                            value="Contact Form"
-                        />
-                        <TextBox
-                            type="text"
-                            name="name"
-                            placeholder="Who are you?"
-                        />
-                        <TextBox
-                            type="email"
-                            name="email"
-                            placeholder="What's your email address?"
-                        />
-                        <TextBox
-                            type="text"
-                            name="subject"
-                            placeholder="What's the subject?"
-                        />
-                        <TextArea
-                            rows="5"
-                            name="message"
-                            placeholder="What's the message?"
-                        />
-                        <SubmitButton type="submit">
-                            Get in touch with Nicky
-                        </SubmitButton>
-                    </ContactContent>
-                </SectionContent>
-            </ContactContainer>
-        </section>
-    )
+function encode(data) {
+    return Object.keys(data)
+        .map(
+            key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&')
+}
+
+class Contact extends React.Component {
+    constructor(props) {
+        super(props)
+        this.setState({})
+    }
+
+    handleChange = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    handleSubmit = e => {
+        e.preventDefault()
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({
+                'form-name': `Contact Form`,
+                ...this.state,
+            }),
+        })
+            .then(() => navigate('/thank-you'))
+            .catch(error => console.log(error))
+    }
+
+    render() {
+        return (
+            <section id="contact">
+                <ContactOffset />
+                <ContactContainer>
+                    <ContactDivider>
+                        <ContactIcon />
+                    </ContactDivider>
+                    <SectionContent>
+                        <Heading>Contact Nicky</Heading>
+                        <ContactContent
+                            name="Contact Form"
+                            method="POST"
+                            data-netlify="true"
+                            data-netlify-honeypot="bot-field"
+                            onSubmit={this.handleSubmit}
+                        >
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="Contact Form"
+                                onChange={this.handleChange}
+                                required="true"
+                            />
+                            <input
+                                type="hidden"
+                                name="bot-field"
+                                onChange={this.handleChange}
+                            />
+                            <TextBox
+                                type="text"
+                                name="name"
+                                placeholder="Who are you?"
+                                onChange={this.handleChange}
+                                required="true"
+                            />
+                            <TextBox
+                                type="email"
+                                name="email"
+                                placeholder="What's your email address?"
+                                onChange={this.handleChange}
+                                required="true"
+                            />
+                            <TextBox
+                                type="text"
+                                name="subject"
+                                placeholder="What's the subject?"
+                                onChange={this.handleChange}
+                                required="true"
+                            />
+                            <TextArea
+                                rows="5"
+                                name="message"
+                                placeholder="What's the message?"
+                                onChange={this.handleChange}
+                                required="true"
+                            />
+                            <SubmitButton type="submit">
+                                Get in touch with Nicky
+                            </SubmitButton>
+                        </ContactContent>
+                    </SectionContent>
+                </ContactContainer>
+            </section>
+        )
+    }
 }
 
 export default Contact
