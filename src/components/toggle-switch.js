@@ -30,8 +30,6 @@ const ToggleSwitch = props => {
             <SwitchLight />
             <label name="switch" htmlFor="switch">
                 <Switch
-                    name="switch"
-                    role="checkbox"
                     aria-checked={props.isDarkMode}
                     checked={props.isDarkMode}
                     onChange={props.toggleTheme}
