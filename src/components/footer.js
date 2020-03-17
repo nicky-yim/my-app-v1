@@ -35,7 +35,7 @@ const Footer = () => {
         <FooterContainer>
             <IconContainer>
                 {site.siteMetadata.sites.map(item => (
-                    <Icon {...item} />
+                    <Icon key={item.title} {...item} />
                 ))}
             </IconContainer>
         </FooterContainer>

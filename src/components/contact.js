@@ -138,6 +138,7 @@ class Contact extends React.Component {
     }
 
     render() {
+        console.log(process.env)
         return (
             <section id="contact">
                 <ContactOffset />
