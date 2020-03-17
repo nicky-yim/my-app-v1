@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css, withTheme } from 'styled-components'
-import Switch from '@nicky-yim/react-switch'
+import Switch from 'react-switch'
 import { FaSun, FaMoon } from 'react-icons/fa'
 
 const SwitchContainer = styled.div`
