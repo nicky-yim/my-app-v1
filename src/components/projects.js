@@ -78,7 +78,7 @@ const Projects = () => {
                                         quality: 90
                                         fit: CONTAIN
                                     ) {
-                                        ...GatsbyImageSharpFluid
+                                        ...GatsbyImageSharpFluid_withWebp
                                     }
                                 }
                             }
