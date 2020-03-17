@@ -98,6 +98,8 @@ const SubmitButton = styled.button`
     }
 `
 
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY
+
 function encode(data) {
     return Object.keys(data)
         .map(
@@ -124,6 +126,10 @@ class Contact extends React.Component {
         })
             .then(() => navigate('/thank-you'))
             .catch(error => alert(error))
+    }
+
+    handleRecaptcha = value => {
+        this.setState({ 'g-recaptcha-response': value })
     }
 
     render() {
@@ -185,7 +191,8 @@ class Contact extends React.Component {
                                 required="true"
                             />
                             <ReCAPTCHA
-                                sitekey={process.env.GATSBY_RECAPTCHA_KEY}
+                                sitekey={RECAPTCHA_KEY}
+                                onChange={this.handleRecaptcha}
                             />
                             <SubmitButton type="submit">
                                 Get in touch with Nicky
