@@ -1,5 +1,7 @@
 <p align="center">
-  <img alt="NYIM.ca" src="src/images/icon.png" width="150px" />
+  <a alt="NYIM.ca" href="https://nyim.ca" target="_blank">
+    <img alt="NYIM.ca" src="src/images/icon.png" width="150px" />
+  </a>
 </p>
 <p align="center">
   <a href="https://app.netlify.com/sites/nicky-yim/deploys" target="_blank">
