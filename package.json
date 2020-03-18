@@ -11,7 +11,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
@@ -31,6 +32,7 @@
     "gatsby-transformer-sharp": "^2.3.19",
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.13.1",
+    "patch-package": "^6.2.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",

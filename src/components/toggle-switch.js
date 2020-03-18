@@ -39,6 +39,7 @@ const ToggleSwitch = props => {
                 onHandleColor={props.theme.fontColor}
                 height={22}
                 width={40}
+                aria-label="toggle dark mode"
             />
             <SwitchDark />
         </SwitchContainer>
