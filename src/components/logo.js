@@ -7,14 +7,14 @@ const Icky = styled.span`
     color: ${({ theme }) => theme.primaryColor};
     max-width: 0em;
     opacity: 0;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 `
 
 const NY = styled.span`
     float: left;
     color: ${({ theme }) => theme.primaryColor};
     opacity: 1;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 `
 
 const IM = styled(NY)``
@@ -53,7 +53,7 @@ const LogoLink = styled.a`
     }
 `
 
-const Logo = (props) => {
+const Logo = props => {
     return (
         <LogoLink {...props}>
             <h1>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -122,95 +122,77 @@ const NavListLink = styled.a`
     }
 `
 
-class Header extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isExpanded: false,
-            isScrolled: false,
-        }
+const Header = props => {
+    const [isExpanded, toggleMenu] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+    const navRef = useRef(null)
+    const menuIcon = isExpanded ? <FaTimes /> : <FaBars />
 
-        this.toggleMenu = this.toggleMenu.bind(this)
-    }
-
-    componentDidMount = () => {
-        window.addEventListener('scroll', this.handleScroll, { passive: true })
-        window.addEventListener('mousedown', this.handleClick, false)
-    }
-
-    componentWillUnmount = () => {
-        window.removeEventListener('scroll', this.handleScroll, {
-            passive: true,
-        })
-        window.removeEventListener('mousedown', this.handleClick, false)
-    }
-
-    toggleMenu = () => {
-        this.setState({
-            isExpanded: !this.state.isExpanded,
-        })
-    }
-
-    handleScroll = () => {
+    const handleScroll = () => {
         let scrollTop =
             document.body !== undefined ? document.body.scrollTop : 0
 
-        this.setState({
-            isScrolled: (window.pageYOffset || scrollTop) > 0,
-        })
+        setIsScrolled((window.pageYOffset || scrollTop) > 0)
     }
 
-    handleClick = e => {
-        if (this.node.contains(e.target)) {
+    const handleClick = e => {
+        if (navRef.current.contains(e.target)) {
             return
         }
 
-        this.setState({ isExpanded: false })
+        toggleMenu(false)
     }
 
-    render() {
-        const menuIcon = this.state.isExpanded ? <FaTimes /> : <FaBars />
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        window.addEventListener('mousedown', handleClick, false)
 
-        return (
-            <Nav
-                isScrolled={this.state.isScrolled}
-                isExpanded={this.state.isExpanded}
-                ref={node => (this.node = node)}
-            >
-                <NavWrapper>
-                    <NavMenu>
-                        <Logo onClick={() => scrollTo('body')} />
-                        <Burger onClick={this.toggleMenu} aria-label="menu">
-                            {menuIcon}
-                        </Burger>
-                    </NavMenu>
-                    <NavList isExpanded={this.state.isExpanded}>
-                        <NavListItem>
-                            <NavListLink onClick={() => scrollTo('#about')}>
-                                About
-                            </NavListLink>
-                        </NavListItem>
-                        <NavListItem>
-                            <NavListLink onClick={() => scrollTo('#projects')}>
-                                Projects
-                            </NavListLink>
-                        </NavListItem>
-                        <NavListItem>
-                            <NavListLink onClick={() => scrollTo('#contact')}>
-                                Contact
-                            </NavListLink>
-                        </NavListItem>
-                        <NavListItem>
-                            <ToggleSwitch
-                                isDarkMode={this.props.isDarkMode}
-                                toggleTheme={this.props.toggleTheme}
-                            />
-                        </NavListItem>
-                    </NavList>
-                </NavWrapper>
-            </Nav>
-        )
-    }
+        return () => {
+            window.removeEventListener('scroll', handleScroll, {
+                passive: true,
+            })
+            window.removeEventListener('mousedown', handleClick, false)
+        }
+    })
+
+    return (
+        <Nav isScrolled={isScrolled} isExpanded={isExpanded} ref={navRef}>
+            <NavWrapper>
+                <NavMenu>
+                    <Logo onClick={() => scrollTo('body')} />
+                    <Burger
+                        onClick={() => toggleMenu(!isExpanded)}
+                        aria-label="menu"
+                    >
+                        {menuIcon}
+                    </Burger>
+                </NavMenu>
+                <NavList isExpanded={isExpanded}>
+                    <NavListItem>
+                        <NavListLink onClick={() => scrollTo('#about')}>
+                            About
+                        </NavListLink>
+                    </NavListItem>
+                    <NavListItem>
+                        <NavListLink onClick={() => scrollTo('#projects')}>
+                            Projects
+                        </NavListLink>
+                    </NavListItem>
+                    <NavListItem>
+                        <NavListLink onClick={() => scrollTo('#contact')}>
+                            Contact
+                        </NavListLink>
+                    </NavListItem>
+                    <NavListItem>
+                        <ToggleSwitch
+                            isDarkMode={props.isDarkMode}
+                            toggleTheme={props.toggleTheme}
+                        />
+                    </NavListItem>
+                </NavList>
+            </NavWrapper>
+        </Nav>
+    )
 }
 
 export default Header
