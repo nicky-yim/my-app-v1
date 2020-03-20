@@ -30,10 +30,12 @@ const CardImg = styled(Img)`
 `
 
 const CardInfo = styled.div`
+    width: 100%;
     position: absolute;
+    bottom: 0px;
+    left: 0;
     padding: 15px;
     border-radius: 0 0 5px 5px;
-    width: calc(100% - 20px);
     color: ${({ theme }) => theme.fontColor};
     font-weight: bold;
     z-index: 2;
@@ -41,9 +43,11 @@ const CardInfo = styled.div`
 `
 
 const CardDesc = styled.div`
+    width: 100%;
     position: absolute;
     padding: 15px;
     top: 50%;
+    left: 0px;
     transform: translate(0, -50%);
     color: ${({ theme }) => theme.primaryColor};
     font-weight: bold;
@@ -53,7 +57,7 @@ const CardDesc = styled.div`
 `
 
 const CardItem = styled.a`
-    padding: 10px;
+    margin: 10px;
     display: flex;
     align-items: flex-end;
     justify-content: center;

@@ -47,6 +47,7 @@ const NavWrapper = styled.div`
 const NavMenu = styled.div`
     margin: auto 25px;
     min-height: 10vh;
+    height: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;

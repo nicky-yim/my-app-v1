@@ -8,6 +8,7 @@ import { FaAngleDoubleDown } from 'react-icons/fa'
 const CoverContainer = styled.section`
     width: 100%;
     min-height: 100vh;
+    height: 0;
     padding: 15px;
     display: flex;
     flex-direction: column;
