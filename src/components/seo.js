@@ -12,6 +12,7 @@ const SEO = ({ description, lang, meta, title }) => {
                     description
                     author
                     keywords
+                    googleSiteVerification
                 }
             }
         }
@@ -65,6 +66,10 @@ const SEO = ({ description, lang, meta, title }) => {
                 {
                     name: `twitter:description`,
                     content: metaDescription,
+                },
+                {
+                    name: `google-site-verification`,
+                    content: site.siteMetadata.googleSiteVerification,
                 },
             ].concat(meta)}
         />

@@ -30,6 +30,7 @@ module.exports = {
                 href: 'https://www.linkedin.com/in/nicky-yim',
             },
         ],
+        googleSiteVerification: `CFSFPhjTuqNslR0SVrxcDdbj4C_MA9HKAtpd_KvVJlE`,
     },
     plugins: [
         'gatsby-plugin-styled-components',
